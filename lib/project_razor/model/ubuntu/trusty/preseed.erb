@@ -42,6 +42,7 @@ d-i pkgsel/include string curl openssh-server
 d-i grub-installer/only_debian boolean true
 d-i grub-installer/with_other_os boolean true
 d-i finish-install/reboot_in_progress note
+d-i live-installer/net-image string http://<%= config.image_svc_host %>:<%= config.image_svc_port %>/razor/image/os/<%= @image_uuid %>/install/filesystem.squashfs
 #Our callbacks
 d-i preseed/early_command string wget <%= api_svc_uri %>/policy/callback/<%= policy_uuid %>/preseed/start
 d-i preseed/late_command string  \
